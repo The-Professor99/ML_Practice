@@ -202,4 +202,9 @@ def get_separated_dataset() -> pd.DataFrame:
                 dataset["Season"] = season
                 dataset["League"] = league["data name"]
                 separated_datasets.append(dataset)
-    return pd.concat(separated_datasets).set_index(["Date"]).sort_index().reset_index()    
+    return pd.concat(separated_datasets).set_index(["Date"]).sort_index().reset_index()  
+
+def get_dataset():
+    contained_dataset = get_contained_dataset()
+    separated_dataset = get_separated_dataset()
+    return pd.concat([contained_dataset, separated_dataset]).set_index(["Date"]).sort_index().reset_index()  
