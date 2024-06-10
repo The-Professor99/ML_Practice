@@ -7,6 +7,9 @@ import time
 import os
 
 from recommendation_system import RecommenderSystem
+ROOT_DIR = os.path.abspath(os.curdir)
+
+st.write(ROOT_DIR)
 
 @st.cache_data
 def get_data():
@@ -39,8 +42,8 @@ def get_data():
             b = c.group(1).strip()
         return pd.Series([a, int(b)])
     # loading movie dataset
-    movies = pd.read_csv(os.path.join(".", "movies.csv"), usecols=["movieId", "title", "genres"])
-    ratings = pd.read_csv(os.path.join(".", "ratings.csv"), usecols=["userId", "movieId", "rating"])
+    movies = pd.read_csv(os.path.join(ROOT_DIR, "movies.csv"), usecols=["movieId", "title", "genres"])
+    ratings = pd.read_csv(os.path.join(ROOT_DIR, "ratings.csv"), usecols=["userId", "movieId", "rating"])
     
     ratings.rename(columns={"movieId": "itemId"}, inplace=True)
     movies.rename(columns={"movieId": "itemId"}, inplace=True)
@@ -57,12 +60,8 @@ def initialize():
 
 # initialize app 
 initialize()
-try:
-    ratings_df, items_df = get_data()
-except Exception as e:
-    st.write("dd")
-    st.write(e)
-    st.write('ff')
+ratings_df, items_df = get_data()
+
 recommender_system = RecommenderSystem(ratings_df, items_df, "my_ratings_stream.pkl","user_id", item_min=30, user_min=50, item_identifier=["title", "year"], rating_mid_point=6)
 
 def button_callback():
