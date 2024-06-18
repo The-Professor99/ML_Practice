@@ -4,9 +4,23 @@ import numpy as np
 import pandas as pd
 from scipy.sparse import csr_matrix
 from sklearn.neighbors import NearestNeighbors
+import streamlit as st
 
 class RecommenderSystem():
     def __init__(self, ratings_df, items_df, user_ratings_filepath, user_id, item_min=50, user_min=200, item_identifier=["title"], rating_mid_point=6, n_neighbors_train=10):
+        """
+        Parameters
+        ---
+        ratings_df: The ratings dataset. should contain columns `userId`, `itemId` and `rating` showing users ratings on different items.
+        items_df: The items dataset. Should contain columns `itemId` and columns present in `item_identifier`.
+        user_ratings_filepath: path to save and retrieve user ratings. a pickle file path is expected. If not existent, will be created.
+        user_id: a unique identifier used in saving user's ratings to df.
+        item_min: Minimum number of ratings required for an item to be included.
+        user_min: Minimum number of ratings required for a user to be included.
+        item_identifier: List of columns that uniquely identify an item.
+        rating_mid_point: Midpoint value to distinguish between high and low ratings.
+        n_neighbors_train: Number of neighbors to consider during model training.
+        """
         self.df = pd.DataFrame([], columns=['userId', 'itemId', 'rating', 'title'])
         self.ratings_df = ratings_df
         self.items_df = items_df
@@ -95,7 +109,6 @@ class RecommenderSystem():
         return self._get_df()[self.item_identifier].sample(5).values
     
     def get_user_edge_rated_books(self, user, edge="top"):
-        # print(user, "user", self._get_df_user())
         queried_data =  self._get_df_user().query(f'''userId == "{user}"''')
         if edge == "top":
             # top-most rated first
@@ -121,13 +134,14 @@ class RecommenderSystem():
             user_ratings = pd.DataFrame(columns=cols)
         return user_ratings
     
-    def update_my_ratings(self, item):
+    def update_my_ratings(self, item, rating=None):
         # allows rating same item twice, entry of same item with highest rating will be choosen
         item_display_string = " - ".join(item)
-        item_id = self.retrieve_item_id(self._get_df(),item) 
+        item_id = self.retrieve_item_id(self._get_df(), item) 
         if item_id:
             user_ratings = self.retrieve_user_ratings() 
-            rating = collect_book_rating(item_display_string)
+            if not rating:
+                rating = collect_book_rating(item_display_string)
             rating_to_add = pd.DataFrame([[item_id, rating, self.user_id] + item], columns=user_ratings.columns)
             
             if user_ratings.empty:
@@ -250,10 +264,10 @@ class RecommenderSystem():
 
         sorted_array = pd.DataFrame(sorted(my_recommendations, key=lambda book: sort_key(my_recommendations, book, negate_list=negative_recommendations), reverse=True)).drop_duplicates().values.tolist()
         eligibles = self.get_eligible(sorted_array)
-        print("Your Recommendations")
+        # print("Your Recommendations")
     
-        for index, book in enumerate(eligibles[:max_recommendations]):
-            print(index + 1, book)
+        # for index, book in enumerate(eligibles[:max_recommendations]):
+        #     print(index + 1, book)
 
         return eligibles[:max_recommendations]
 
@@ -329,7 +343,6 @@ def collect_book_rating(item_display_string):
             pass 
         print("\n ==> Please enter a value between 1 and 10 <== \n")
 
-
 def get_pivot_table(df, index, columns):
     # create a pivot table. This is similar to TF-IDF process. see https://www.geeksforgeeks.org/recommendation-system-in-python/
     df = df.copy()
@@ -347,7 +360,6 @@ def get_pivot_table(df, index, columns):
 
     df_pivot.dropna(inplace=True)
     return df_pivot
-
 
 
 def train_model(df, index, columns, n_neighbors, metric='cosine', algorithm='brute'):
