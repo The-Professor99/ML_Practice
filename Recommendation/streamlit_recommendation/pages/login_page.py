@@ -4,6 +4,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 api_key = st.secrets["firebase_api_key"]
+app_url = st.secrets["app_url"]
 
 def firebase_request(url, payload, success_message=""):
     try:
@@ -21,7 +22,7 @@ def send_sign_in_email(email: str):
     payload = {
         "requestType": "EMAIL_SIGNIN",
         "email": email,
-        "continueUrl": "http://localhost:8501/login"
+        "continueUrl": f"{app_url}/login_page"
     }
     success_message = (
         "We've sent a sign-in link to your email address. "
