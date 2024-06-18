@@ -22,7 +22,7 @@ def logout():
     
     # if anonymous user, delete file on logout
     if st.session_state["user_email"] == "Anon":
-        rating_file_name = get_file_path(f"{st.session_state["user_id"]}_ratings.pkl")
+        rating_file_name = get_file_path(f"{st.session_state['user_id']}_ratings.pkl")
         if os.path.exists(rating_file_name):
             os.remove(rating_file_name)
         
