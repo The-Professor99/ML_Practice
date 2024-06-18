@@ -1,4 +1,5 @@
 import streamlit as st
+from utils import get_file_path
 
 st.header("Welcome to the Movie Recommendation System!", divider=True)
 st.markdown('''
@@ -10,8 +11,9 @@ It is designed to provide you with personalized movie recommendations based on y
 3. **Login**: Sign in with your email to save your ratings and get even more personalized recommendations. You can also log in anonymously if you prefer.
 
 ''')
-        
-st.image('recommendation_image.gif', caption='An overview of the recommendation system')
+
+image_path = get_file_path('recommendation_image.gif')
+st.image(image_path, caption='An overview of the recommendation system')
 
 st.write("Enjoy exploring and discovering new movies tailored just for you!")
 
