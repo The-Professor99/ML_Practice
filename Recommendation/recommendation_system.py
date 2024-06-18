@@ -171,8 +171,8 @@ class RecommenderSystem():
 
 
     def get_similar_users(self, user_ratings):
-        user_id =user_ratings["userId"].unique()[0]
-        
+        user_id = user_ratings["userId"].unique()[0].lower()
+
         df_concat = pd.concat([self._get_df(), user_ratings])
         df_pivot = get_pivot_table(df_concat, ["userId"], self.item_identifier)
 
@@ -182,7 +182,8 @@ class RecommenderSystem():
 
         # similar users is of the form [[user id, proximity],...]
         similar_users_ = np.array(similar_users[1])[:, 0].tolist()
-        # To:Check this addition of me as a similar user
+        
+        # To:Check this addition of user as a similar user
         similar_users_.append(similar_users[0])
         
         return similar_users_
@@ -419,5 +420,3 @@ def sort_key(item_list, item, negate_list=[]):
 def vet_recommendation(id, recommendation_zero):
     if set(id) != set(recommendation_zero):
         print(f"Please check model, {recommendation_zero} not {id}")
-
-
