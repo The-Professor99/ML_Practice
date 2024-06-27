@@ -11,7 +11,7 @@ from utils import get_file_path
 
 @st.cache_data
 def get_data():
-    movies = pd.read_csv(get_file_path("movies.csv"), usecols=["itemId", "title", "year"])
+    movies = pd.read_csv(get_file_path("movies.csv"), usecols=["itemId", "title", "director"])
     ratings = pd.read_csv(get_file_path("ratings.csv"), usecols=["userId", "itemId", "rating"])
 
     return ratings, movies
@@ -54,8 +54,9 @@ def generate_dummy_user_id():
 def get_recommendations(recommender_system):
     with st.spinner('Getting Recommendations. This may take a while...'):
         recommender_system.train_models_and_pivot_df()
-        recommended = recommender_system.pool_and_recommend(100)
+        recommended = recommender_system.generate_user_recommendations(50)
         st.session_state['recommended_movies'] = recommended
+    st.toast('Recommendation List Updated!', icon='🎉')
 
 @st.experimental_dialog("Rate Movies")
 def rate_movies(recommender_system): 
@@ -64,6 +65,7 @@ def rate_movies(recommender_system):
     df["rating"] = None
 
     st.write("Help us improve your recommendations by rating movies. Rate only the movies you've watched. It's okay to skip those you haven't. ")
+    st.write("Your ratings should go into 'Your Rating' column.")
     st.write("=== Rating Scale: 1 - 10 ===")
     edited_df = st.data_editor(df, 
         column_config={
@@ -84,7 +86,7 @@ def rate_movies(recommender_system):
             for edited in edited_rows:
                 item = edited[:2]
                 rating = edited[2]
-                recommender_system.update_my_ratings(item, rating)  
+                recommender_system.update_users_ratings(item, rating)  
             st.session_state["ratings_updated"] = True
             st.rerun()
             
@@ -107,7 +109,7 @@ def main():
     # also get training data and initialize recommender system
     ratings_df, items_df = get_data()
     user_ratings_file = f"{user_id}_ratings.pkl"
-    recommender_system = RecommenderSystem(ratings_df, items_df, get_file_path(user_ratings_file), user_id, item_min=30, user_min=50, item_identifier=["title", "year"], rating_mid_point=6)
+    recommender_system = RecommenderSystem(ratings_df, items_df, get_file_path(user_ratings_file), user_id, item_min=30, user_min=50, item_identifier=["title", "director"], rating_mid_point=6, max_rating=10)
 
     # Display user email and logout button on sidebar
     with st.sidebar:
@@ -138,7 +140,8 @@ def main():
         with tile:
             st.subheader("Recommendations: ")
             st.table(pd.DataFrame(recommended_items, columns=["title", "year"]))
-            
+
+        st.caption("The more you rate, the better the recommendations.")
         if len(recommended_items):    
             update_button = st.button("Update Ratings")    
             if update_button:

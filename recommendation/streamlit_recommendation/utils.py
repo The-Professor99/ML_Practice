@@ -7,7 +7,7 @@ def get_file_path(target_subpath: str) -> str:
     current_dir = os.path.abspath(os.curdir)
 
     # Define the base path relative to the root of the project
-    base_subpath = os.path.normpath('Recommendation/streamlit_recommendation')
+    base_subpath = os.path.normpath('recommendation/streamlit_recommendation')
 
     # Check if the current working directory already includes the base path
     if base_subpath in current_dir:

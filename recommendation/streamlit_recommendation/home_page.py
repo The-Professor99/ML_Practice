@@ -11,6 +11,7 @@ It is designed to provide you with personalized movie recommendations based on y
 3. **Login**: Sign in with your email to save your ratings and get even more personalized recommendations. You can also log in anonymously if you prefer.
 
 ''')
+st.caption("Movies that can be recommended by this system were released between the `90's and 2016")
 
 image_path = get_file_path('recommendation_image.gif')
 st.image(image_path, caption='An overview of the recommendation system')
