@@ -61,7 +61,7 @@ def get_recommendations(recommender_system):
 @st.experimental_dialog("Rate Movies")
 def rate_movies(recommender_system): 
     recommended_items = st.session_state['recommended_movies']
-    df = pd.DataFrame(recommended_items, columns=["title", "year"])
+    df = pd.DataFrame(recommended_items, columns=["title", "director"])
     df["rating"] = None
 
     st.write("Help us improve your recommendations by rating movies. Rate only the movies you've watched. It's okay to skip those you haven't. ")
@@ -78,7 +78,7 @@ def rate_movies(recommender_system):
                 format="%d ⭐",
             ),
         },
-        disabled=["title", "year"])
+        disabled=["title", "director"])
     
     if st.button("Save Ratings"):
         with st.spinner('Saving ratings...'):
@@ -139,7 +139,7 @@ def main():
         tile = right_column.container(height=350)
         with tile:
             st.subheader("Recommendations: ")
-            st.table(pd.DataFrame(recommended_items, columns=["title", "year"]))
+            st.table(pd.DataFrame(recommended_items, columns=["title", "director"]))
 
         st.caption("The more you rate, the better the recommendations.")
         if len(recommended_items):    
