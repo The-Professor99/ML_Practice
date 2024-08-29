@@ -28,3 +28,7 @@ A deep learning model trained to classify images of dogs and cats.
 
 A neural network model trained to predict if an email is spam or ham
 [FreeCodeCamp Challenge](https://www.freecodecamp.org/learn/machine-learning-with-python/machine-learning-with-python-projects/neural-network-sms-text-classifier)
+
+## 7. [Dialogue Summarizer](/nlp/transformers/Dialogue_Summarization.ipynb)
+
+This notebook demonstrates the fine-tuning of a transformer model(google/pegasus-cnn_dailymail) on the SAMSum dataset to summarize chat dialogues. The process involves data preprocessing, training the model on conversational data, and evaluating the summarization results using metrics such as ROUGE. Note that this was done for practice purposes, so the fine-tuning process was not fully optimized for production use.
