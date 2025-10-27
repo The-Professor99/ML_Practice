@@ -2,7 +2,7 @@
 
 A repository containing the notebooks of some ML related projects I am working on
 
-## 1. [Predictive Analysis of Football Match Outcomes](/project_1/Predictive_Analysis_of_Football_Match_Outcomes.ipynb)
+## 1. [Predictive Analysis of Football Match Outcomes](/projects/project-01-predictive_analysis_of_football_match_outcomes.ipynb)
 
 This project explores the application of machine learning in sports analytics, specifically focusing on binary classification of football match outcomes. It demonstrates data analysis, feature engineering (including time-series features and team performance metrics), and the evaluation of various ML models (Random Forests, Neural Networks, etc.). The project showcases statistical analysis, probability theory application, and the challenges of predicting inherently random events. It includes model validation techniques and performance analysis using metrics such as accuracy, precision, and recall.
 
@@ -10,7 +10,7 @@ This project explores the application of machine learning in sports analytics, s
 
 This repository contains a Recommender System built on the concepts of collaborative filtering. The system can be used to provide personalized recommendations based on user ratings and preferences.
 
-## 3. [Topic Modeling and Document Clustering](/nlp/topic_modeling_and_document_clustering.ipynb)
+## 3. [Topic Modeling and Document Clustering](https://colab.research.google.com/drive/1PdtqQ_nfgiLU56QD8FxXIBj0ZCifF784?usp=sharing)
 
 This notebook focuses on document clustering and topic modeling, aiming to analyze, categorize large sets of text data and extract latent topics. It includes techniques for dimensionality reduction, clustering, evaluating the quality of clusters, and uses bertopic for topic modeling and representations.
 
@@ -33,6 +33,6 @@ A deep learning model trained to classify images of dogs and cats.
 A neural network model trained to predict if an email is spam or ham
 [FreeCodeCamp Challenge](https://www.freecodecamp.org/learn/machine-learning-with-python/machine-learning-with-python-projects/neural-network-sms-text-classifier)
 
-## 8. [Dialogue Summarizer](/nlp/transformers/Dialogue_Summarization.ipynb)
+## 8. [Dialogue Summarizer](https://colab.research.google.com/drive/1F1kSGEmDSSieuUVpBKTcm6r9ehpRJPTm?usp=sharing)
 
 This notebook demonstrates the fine-tuning of a transformer model(google/pegasus-cnn_dailymail) on the SAMSum dataset to summarize chat dialogues. The process involves data preprocessing, training the model on conversational data, and evaluating the summarization results using metrics such as ROUGE. Note that this was done for practice purposes, so the fine-tuning process was not fully optimized for production use.
