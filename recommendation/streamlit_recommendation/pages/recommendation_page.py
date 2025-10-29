@@ -5,7 +5,6 @@ from datetime import datetime
 import numpy as np
 import pandas as pd
 import streamlit as st
-import streamlit.components.v1 as components
 from recommendation_system import RecommenderSystem
 from utils import get_file_path
 
@@ -58,7 +57,7 @@ def get_recommendations(recommender_system):
         st.session_state['recommended_movies'] = recommended
     st.toast('Recommendation List Updated!', icon='🎉')
 
-@st.experimental_dialog("Rate Movies")
+@st.dialog("Rate Movies")
 def rate_movies(recommender_system): 
     recommended_items = st.session_state['recommended_movies']
     df = pd.DataFrame(recommended_items, columns=["title", "director"])

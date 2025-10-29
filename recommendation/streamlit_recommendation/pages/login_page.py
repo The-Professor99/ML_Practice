@@ -46,7 +46,7 @@ def sign_in_with_email_link(email: str, oobCode: str):
         st.rerun()
     
         
-@st.experimental_dialog("Re-authenticating...")
+@st.dialog("Re-authenticating...")
 def login_user(oobCode):
     with st.form(key="login_form_2"):
         email = st.text_input("Enter your email address: ", placeholder="Please re-enter your email address", autocomplete="email")

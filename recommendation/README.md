@@ -83,3 +83,7 @@ streamlit run home_page.py
 ### [Example](./example/Example.ipynb)
 
 See an example usage of the recommender system in [this notebook](./example/Example.ipynb)
+
+### Live Url
+
+Checkout the project out on [streamlit](https://movie-recommendation-project.streamlit.app/)
