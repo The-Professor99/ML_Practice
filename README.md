@@ -40,9 +40,10 @@ Current focus areas:
 - Languages: Python, JavaScript/TypeScript, SQL
 - ML & Data: scikit-learn, TensorFlow, PyTorch, Hugging Face, pandas, NumPy
 - NLP & Retrieval: transformers, sentence-transformers, bertopic, Haystack
+- LLMs and Agent Systems: LangChain, LangGraph, LangSmith, Google's Agent Development Kit (ADK)
 - Frontend: React, Next.js, MUI, Tailwind, SCSS, Angular
 - Backend & Cloud: Flask, FastAPI, Firebase, AWS, GCP, Django
-- Data Stores & Tools: PostgreSQL, Firestore, Elasticsearch, Git, CI/CD
+- Data Stores & Tools: PostgreSQL, Firestore, Elasticsearch, Docker, Git, CI/CD
 
 # Projects
 
@@ -60,7 +61,6 @@ Current focus areas:
 - [Courses and Certifications](#courses-and-certifications)
 - [Education](#education)
 - [Hands on Learning](#hands-on-learning)
-- [Current Focus](#current-focus)
 - [Contact](#contact)
 
 ---
@@ -655,10 +655,28 @@ Key Learning: light-dependent resistor (LDR) based sun tracking, power optimizat
 
 ## Machine Learning Certifications
 
+- [AI Agents Intensive Vibe Coding Course with Google (Kaggle 5-Day Program) - Jun 2026](#ai-agents-intensive-vibe-coding-course-with-google-kaggle-5-day-program---jun-2026)
 - [AI Agents Intensive Course with Google (Kaggle 5-Day Program) - May 2026](#ai-agents-intensive-course-with-google-kaggle-5-day-program---may-2026)
 - [Machine Learning with Python - May 2024](#machine-learning-with-python---may-2024)
 - [Time Series Forecasting with Machine Learning - Sept 2023](#time-series-forecasting-with-machine-learning---sept-2023)
 - [AWS Machine Learning Foundations - Nov 2022](#aws-machine-learning-foundations---nov-2022)
+
+### AI Agents Intensive Vibe Coding Course with Google (Kaggle 5-Day Program) - Jun 2026
+
+Completed Google's 5-day continuation intensive focused on vibe coding workflows and production-grade agent engineering. The program covered moving from prompt-driven prototypes to robust agent systems with tool interoperability, skills, security evaluations, and cloud deployment patterns.
+
+**Focus Areas**: vibe coding, agent interoperability, MCP integration, agent skills and memory, human-in-the-loop workflows, security and evaluation, spec-driven development, production deployment
+
+**Tech Stack**: `Python` `Google ADK (Agent Development Kit)` `Agents CLI` `Google Antigravity` `MCP` `Google AI Studio` `Cloud Run` `Google Cloud`
+
+**Key Learning**: intent-first SDLC patterns, tool and protocol integration (MCP/A2A/A2UI), reusable skills-based agents, secure/tested agent workflows, and spec-driven productionization with observability.
+
+**Projects and Capstone**: explored hands-on codelabs including AI Studio to Cloud Run deployment, MCP server integration, ADK/Agents CLI skill-based agent builds, expense-approval agent with human-in-the-loop triage and local evals, plus optional cloud-hosted frontend + async architecture.
+
+- Type: Course
+- Learning Platform: Google (in collaboration with Kaggle)
+- Date: Jun 2026
+- [Show Learning Badge](https://developers.google.com/profile/badges/events/cloud/five-day-ai-agents)
 
 ### AI Agents Intensive Course with Google (Kaggle 5-Day Program) - May 2026
 
@@ -666,7 +684,7 @@ Completed Google's intensive hands-on course on building AI agents. Covered the 
 
 **Focus Areas**: AI agents, agentic workflows, tool integration, context engineering, memory management, multi-agent systems, agent evaluation and deployment
 
-**Tech Stack**: `Python Google ADK (Agent Development Kit)` `LangChain` `Gemini models`
+**Tech Stack**: `Python` `Google ADK (Agent Development Kit)` `LangChain` `Gemini models` `Google AI studio`
 
 **Key Learning**: core concepts of AI agents, reasoning and planning loops, tool use and interoperability, session & memory management, different agent workflow patterns, building production-ready agents, evaluation techniques for agent performance
 
