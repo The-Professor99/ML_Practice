@@ -254,6 +254,8 @@ This is a class attendance management system based on face recognition technolog
 Some of the group work projects I participated in at WorldQuant University involved collaborative code implementations and the preparation of comprehensive final reports as the primary deliverables. These projects focused on applied quantitative finance and machine learning skills. They include, but are not limited to:
 
 - [Building Machine Learning Models from Scratch](#building-machine-learning-models-from-scratch)
+- [Multi-Asset Prediction](#multi-asset-prediction)
+- [Backtesting and Validation](#backtesting-and-validation)
 - [Quantitative Model Survey](#quantitative-model-survey)
 - [Stock Market Prediction in Emerging Markets (Paper Implementation)](#stock-market-prediction-in-emerging-markets-paper-implementation)
 - [Hyperparameter Tuning and Generalization](#hyperparameter-tuning-and-generalization)
@@ -274,6 +276,26 @@ Implemented core machine learning algorithms from first principles using only fu
 **Tech Stack**: `Python` `Numpy` `Matplotlib` `Pandas` `Scikit-learn` `tensorflow` `pytorch`
 
 **Key Learning**: linear regression with gradient descent, loss and cost functions, forward and backward propagation, neural network architecture implementation, RNNs for sequential data, ARIMA model mechanics, manual gradient computation and optimization
+
+## Multi-Asset Prediction
+
+Multi-asset deep learning modeling for tactical asset allocation. Built and compared three DL architectures (MLP, CNN-GAF, LSTM) to predict 25-day ahead returns for five major ETF asset classes (SPY, TLT, SHY, GLD, DBO). Developed a multi-output LSTM to jointly predict returns across assets and capture cross-asset dependencies. Implemented a practical trading strategy based on model predictions and conducted comprehensive backtesting against an equally weighted buy-and-hold benchmark.
+
+**Focus Areas**: multi-asset forecasting, architecture comparison (MLP vs CNN vs LSTM), multi-output models, cross-asset dependencies, portfolio strategy design, backtesting, tactical asset allocation, feature engineering
+
+**Tech Stack**: `Python` `TensorFlow` `Keras` `Pandas` `NumPy` `Scikit-Learn` `yfinance` `Matplotlib` `Seaborn` `Plotly`
+
+**Key Learning**: time series prediction across heterogeneous asset classes, Gramian Angular Field (GAF) image transformations for time series encoding, multi-task learning and multi-output architectures, practical trading strategy implementation, backtesting framework design, limitations of prediction accuracy in achieving portfolio performance
+
+## Backtesting and Validation
+
+Demonstrated the critical importance of proper validation design in financial model backtesting through structured analysis of Bitcoin price prediction. Intentionally introduced temporal leakage in the initial train/test split to establish an inflated baseline, then progressively applied walk-forward validation and purging/embargo techniques to quantify performance degradation. This project isolates the impact of validation methodology from model capability, showing how poor validation design can create misleading backtesting results.
+
+**Focus Areas**: backtesting methodology, temporal data leakage, walk-forward validation, validation design impact, purging and embargo techniques, realistic out-of-sample performance assessment, market regime analysis
+
+**Tech Stack**: `Python` `TensorFlow` `Keras` `Pandas` `NumPy` `Scikit-Learn` `yfinance` `Matplotlib` `Seaborn`
+
+**Key Learning**: temporal data leakage identification and mitigation strategies, walk-forward vs static validation trade-offs, purging (removing label-leaky samples) and embargo (buffering periods) implementation, validation design sensitivity in financial forecasting, market regime exposure across test periods, realistic vs optimistic performance assessment, importance of chronological ordering in time series validation
 
 ## Quantitative Model Survey
 
