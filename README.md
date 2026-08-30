@@ -2,7 +2,11 @@
 
 <a id="top"></a>
 
-A results-driven ML engineer and frontend developer who builds production-ready AI systems, data pipelines, and user-facing web apps. I focus on end-to-end solutions, from data collection and modeling to deployment and monitoring, that deliver measurable product impact.
+Hi, I'm **Festus Ihechi** 👋
+
+I'm a software engineer transitioning into AI and machine learning, passionate about building intelligent systems that solve real-world problems. My background spans computer engineering, software engineering, financial engineering, data engineering, and machine learning, and I enjoy projects involving predictive modelling, time-series forecasting, financial data, quantitative finance, automation, and AI applications.
+
+I'm currently pursuing an MSc in Financial Engineering at WorldQuant University, where I'm deepening my knowledge of machine learning, financial econometrics, risk management, and quantitative methods. I enjoy reading research papers, experimenting with new technologies, and turning ideas into practical tools that solve real-world problems.
 
 Current focus areas:
 
